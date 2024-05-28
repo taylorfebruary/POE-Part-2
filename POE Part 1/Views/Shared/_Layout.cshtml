@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="nav">
+                    <li class="@(ViewBag.ActivePage == "Home" ? "active" : "")">
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li class="@(ViewBag.ActivePage == "AboutUs" ? "active" : "")">
+                        @Html.ActionLink("About Us", "AboutUs", "Home")
+                    </li>
+                    <li class="@(ViewBag.ActivePage == "OurWork" ? "active" : "")">
+                        @Html.ActionLink("Our Work", "OurWork", "Home")
+                    </li>
+                    <li class="@(ViewBag.ActivePage == "ContactUs" ? "active" : "")">
+                        @Html.ActionLink("Contact Us", "ContactUs", "Home")
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - CloudDevelopment - <a asp-area="" asp-controller="Home" asp-action="Privacy.cshtml">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
